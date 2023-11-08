@@ -1,5 +1,6 @@
 import csv
 from datetime import datetime
+import math
   
 
 # função que carrega arquivo csv
