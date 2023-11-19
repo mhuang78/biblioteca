@@ -1,12 +1,8 @@
 
-
-from datetime import datetime
-  
-
 # função que carrega arquivo csv
 def carregar_csv(arquivo): 
     with open(arquivo, mode='r') as arquivo_csv: # abre o arquivo em modo read. o WITH fecha o arquivo quando termina a função.
-        linhas = arquivo_csv.readlines() # cada linha do arquivo é salvo com o readlines 
+        linhas = arquivo_csv.readlines() # cada linha do arquivo CSV é salvo na variavel 'linhas' em uma lista de strings
         print(linhas)
         header = linhas[0].strip().split(',') # salva a primeira linha do csv como o header, que sao as chaves do dic
         for linha in linhas[1:]: # itera sobre cada linha depois do header
@@ -20,11 +16,39 @@ def carregar_csv(arquivo):
 # função para mostrar a biblioteca
 
 def extrato_biblioteca(arquivo):
-    print(f"\n{'Titulo':<40} {'Autor':<25}{'Categoria':<15}{'Valor':<10}{'Data'}")
+    print(f"\n{'Titulo':<40} {'Autor':<25}{'Categoria':<15}{'Valor':<10}{'Data de Cadastro'}")
     print('---------------------------------------------------------------------------------------------------------')
     for livro in arquivo:        
-        print(f"{livro['Titulo']:<40} {livro['Autor']:<25} {livro['Categoria']:<15}{livro['Valor']:<10}{livro['Data']}")
+        print(f"{livro['Titulo']:<40} {livro['Autor']:<25} {livro['Categoria']:<15}{livro['Valor']:<10}{livro['Data de Cadastro']}")
     print('\n')
+
+# pedir a data do usuário
+def data_de_cadastro():
+    run = True
+    while run:
+        try:
+            dia_de_cadastro = int(input('Digite o dia com dois dígitos DD :'))
+            while dia_de_cadastro > 31 or dia_de_cadastro <1:
+                print('O dia tem que ser entre 1 e 31. Repita: ')
+                dia_de_cadastro = int(input('Digite o dia com dois dígitos DD :'))
+
+            mes_de_cadastro = int(input('Digite o mês com dois dígitos MM:'))
+            while mes_de_cadastro > 12 or mes_de_cadastro <1:
+                print('O mes tem que ser entre 1 e 12. Repita: ')
+                mes_de_cadastro = int(input('Digite o mês com dois dígitos MM :'))
+
+            ano_de_cadastro = int(input('Digite o ano com quatro dígitos AAAA:'))
+            while ano_de_cadastro != 2023:
+                print('O ano tem que ser 2023. Repita: ')
+                ano_de_cadastro = int(input('Digite o ano com quatro dígitos AAAA :'))
+            data_atual = str(dia_de_cadastro) +'-'+ str(mes_de_cadastro)+ '-' +str(ano_de_cadastro)
+            print(data_atual)
+            return data_atual
+        except ValueError:
+            print('Digite somente numeros.')
+
+today = data_de_cadastro()
+
 
 
 # Verificar se ja existe biblioteca existente. Se não, criar arquivo csv novo
@@ -47,7 +71,7 @@ while biblioteca_existente == '0':
 # função para adicionar livro
 def adicionar_livro(titulo, autor, categoria, valor, data):
     
-    livro = { 'Titulo': titulo,'Autor': autor, 'Categoria': categoria, 'Valor': valor, 'Data':data}
+    livro = { 'Titulo': titulo,'Autor': autor, 'Categoria': categoria, 'Valor': valor, 'Data de Cadastro':data}
     biblioteca.append(livro)
     salvar_csv('biblioteca.csv')
 
@@ -62,7 +86,7 @@ def remover_livro(titulo):
 # função para salvar arquivo csv
 def salvar_csv(arquivo):
     with open(arquivo, mode='w', newline='') as arquivo_csv:
-        header = ['Titulo', 'Autor', 'Categoria', 'Valor', 'Data']
+        header = ['Titulo', 'Autor', 'Categoria', 'Valor', 'Data de Cadastro']
         arquivo_csv.write(','.join(header) + '\n')
         for livro in biblioteca:
             values = [str(livro[key]) for key in header]
@@ -99,7 +123,7 @@ def organizar(ordenar):
 selecionar = '5'
 while selecionar !='8':
     extrato_biblioteca(biblioteca)
-    selecionar=(input('1-CADASTRAR, 2-REMOVER, 3- ATUALIZAR, 4-BUSCAR, 5-EXTRATO, 6-TOTAL INVESTIDO, 7-ORDENAR, 8-FECHAR \n'))
+    selecionar=input('1-CADASTRAR, 2-REMOVER, 3- ATUALIZAR, 4-BUSCAR, 5-EXTRATO, 6-TOTAL INVESTIDO, 7-ORDENAR, 8-FECHAR \n')
     if selecionar=='8':
         print('Encerrando programa')
 
@@ -109,13 +133,10 @@ while selecionar !='8':
         x= input("Autor: ").upper()
         y= input ("Categoria: ").upper()
         z= input("Valor pago: ") 
-        now = datetime.now()
-        data = now.strftime('%d-%m-%Y')
-        print(data)
         if w =='':
             print('\nFalta o título do livro. Voltando ao menu principal.')
         else:    
-            adicionar_livro(w,x,y,z,data)        
+            adicionar_livro(w,x,y,z,today)        
 
     elif selecionar == '2': # Remover
         remover = input('Digite o titulo do livro que quer remover: ')
