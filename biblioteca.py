@@ -77,17 +77,17 @@ def adicionar_livro(titulo, autor, categoria, valor, data):
 
 # função para remover livro pelo titulo
 def remover_livro(titulo):
-    titulo_lower = titulo.lower()
+    titulo_upper = titulo.upper()
     c = False
     for livro in biblioteca[:]: #itera sobre uma copia para não dar erro, pois se fosse pelo original, cada remoção muda o index, se tiver varios titulos iguais
-        if livro['Titulo'].lower() == titulo.lower():
+        if livro['Titulo'].upper() == titulo.upper():
             biblioteca.remove(livro)
             print(f'{titulo} foi removido da biblioteca.')
             c = True
     if c == False:
         print('Livro não localizado. ')
-            
-
+ 
+        
 # função para salvar arquivo csv
 def salvar_csv(arquivo):
     with open(arquivo, mode='w', newline='') as arquivo_csv:
