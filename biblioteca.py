@@ -111,7 +111,11 @@ while biblioteca_existente == '0':
         # Comando para importar a biblioteca existente
         biblioteca = []
         csv_path = 'biblioteca.csv'
-        carregar_csv(csv_path)
+        try:
+            carregar_csv(csv_path)
+        except FileNotFoundError:
+            print(f'\nArquivo CSV não foi encontrado. A biblioteca será inicializada vazia. ')
+            biblioteca = []
     elif biblioteca_existente == '456':        
         biblioteca = []
     else:
