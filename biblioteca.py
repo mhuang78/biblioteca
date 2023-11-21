@@ -2,15 +2,15 @@
 def carregar_csv(arquivo): 
     with open(arquivo, mode='r') as arquivo_csv: # abre o arquivo em modo read. o WITH fecha o arquivo quando termina a função.
         linhas = arquivo_csv.readlines() # cada linha do arquivo CSV é salvo na variavel 'linhas' em uma lista de strings
-        print(linhas)
+        
         header = linhas[0].strip().split(',') # salva a primeira linha do csv como o header, que sao as chaves do dic
         for linha in linhas[1:]: # itera sobre cada linha depois do header
             dados = linha.strip().split(',') # extrai a linha e salva em uma lista
-            print(dados)
+            
             livro = dict(zip(header, dados)) # cria um dicionario, combinando o header como chaves e os dados  como values
-            print(livro)
+            
             biblioteca.append(livro) # adiciona o dicionario na lista biblioteca. a biblioteca é uma lista de dicionarios, com 
-            print(biblioteca)
+            
 
 # função para mostrar a biblioteca
 
