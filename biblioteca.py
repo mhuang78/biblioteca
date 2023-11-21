@@ -15,10 +15,10 @@ def carregar_csv(arquivo):
 # função para mostrar a biblioteca
 
 def extrato_biblioteca(arquivo):
-    print(f"\n{'Titulo':<40} {'Autor':<25}{'Categoria':<15}{'Valor':<10}{'Data de Cadastro'}")
-    print('---------------------------------------------------------------------------------------------------------')
+    print(f"\n{'Titulo':<40} {'Autor':<25}{'Categoria':<15}{'Valor (R$)':<15}{'Data de Cadastro'}")
+    print('-----------------------------------------------------------------------------------------------------------------')
     for livro in arquivo:        
-        print(f"{livro['Titulo']:<40} {livro['Autor']:<25} {livro['Categoria']:<15}{livro['Valor']:<10}{livro['Data de Cadastro']}")
+        print(f"{livro['Titulo']:<40} {livro['Autor']:<25} {livro['Categoria']:<15}{livro['Valor']:<15}{livro['Data de Cadastro']}")
     print('\n')
 
 # pedir a data do usuário
@@ -125,7 +125,6 @@ while biblioteca_existente == '0':
 
 selecionar = '5'
 while selecionar !='8':
-    extrato_biblioteca(biblioteca)
     selecionar=input('1-CADASTRAR, 2-REMOVER, 3- ATUALIZAR, 4-BUSCAR, 5-EXTRATO, 6-TOTAL INVESTIDO, 7-ORDENAR, 8-FECHAR \n')
     if selecionar=='8':
         print('Encerrando programa')
