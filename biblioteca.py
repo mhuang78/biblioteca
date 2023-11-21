@@ -26,23 +26,19 @@ def data_de_cadastro():
     run = True
     while run:
         try:
-            dia_de_cadastro = int(input('Digite o dia com dois dígitos DD :'))
+            dia_de_cadastro = int(input('Digite o dia com dois dígitos DD: '))
             while dia_de_cadastro > 31 or dia_de_cadastro <1:
                 print('O dia tem que ser entre 1 e 31. Repita: ')
-                dia_de_cadastro = int(input('Digite o dia com dois dígitos DD :'))
+                dia_de_cadastro = int(input('Digite o dia com dois dígitos DD: '))
 
-            mes_de_cadastro = int(input('Digite o mês com dois dígitos MM:'))
+            mes_de_cadastro = int(input('Digite o mês com dois dígitos MM: '))
             while mes_de_cadastro > 12 or mes_de_cadastro <1:
-                print('O mes tem que ser entre 1 e 12. Repita: ')
-                mes_de_cadastro = int(input('Digite o mês com dois dígitos MM :'))
+                print('O mes tem que ser entre 1 e 12. Repita!')
+                mes_de_cadastro = int(input('Digite o mês com dois dígitos MM: '))
 
-            ano_de_cadastro = int(input('Digite o ano com quatro dígitos AAAA:'))
-            while ano_de_cadastro != 2023:
-                print('O ano tem que ser 2023. Repita: ')
-                ano_de_cadastro = int(input('Digite o ano com quatro dígitos AAAA :'))
-            data_atual = str(dia_de_cadastro) +'-'+ str(mes_de_cadastro)+ '-' +str(ano_de_cadastro)
-            print(data_atual)
+            data_atual = str(dia_de_cadastro) +'-'+ str(mes_de_cadastro)+ '-2023'
             return data_atual
+            
         except ValueError:
             print('Digite somente numeros.')
 
