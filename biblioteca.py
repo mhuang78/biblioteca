@@ -134,7 +134,13 @@ while selecionar !='8':
         w= input("Titulo do livro: ").upper()
         x= input("Autor: ").upper()
         y= input ("Categoria: ").upper()
-        z= input("Valor pago: R$ ") 
+        rodar = True
+        while rodar:
+            try:
+                z= float(input("Valor pago: "))
+                rodar = False
+            except ValueError:
+                print('Digite somente números.')
         if w =='':
             print('\nFalta o título do livro. Voltando ao menu principal.')
         else:    
