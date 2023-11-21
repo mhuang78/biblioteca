@@ -133,15 +133,15 @@ while selecionar !='8':
         print('Encerrando programa')
 
     elif selecionar =='1': # Cadastrar
-        print('Digite os dados na seguinte ordem: titulo, autor, categoria, valor.')
+        print('Vamos ao cadastro do livro!')
         w= input("Titulo do livro: ").upper()
         x= input("Autor: ").upper()
         y= input ("Categoria: ").upper()
-        z= input("Valor pago: ") 
+        z= input("Valor pago: R$ ") 
         if w =='':
             print('\nFalta o título do livro. Voltando ao menu principal.')
         else:    
-            adicionar_livro(w,x,y,z,today)        
+            adicionar_livro(w,x,y,z)        
 
     elif selecionar == '2': # Remover
         remover = input('Digite o titulo do livro que quer remover: ')
