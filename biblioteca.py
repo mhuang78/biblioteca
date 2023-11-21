@@ -1,4 +1,3 @@
-
 # função que carrega arquivo csv
 def carregar_csv(arquivo): 
     with open(arquivo, mode='r') as arquivo_csv: # abre o arquivo em modo read. o WITH fecha o arquivo quando termina a função.
@@ -46,26 +45,6 @@ def data_de_cadastro():
             return data_atual
         except ValueError:
             print('Digite somente numeros.')
-
-today = data_de_cadastro()
-
-
-
-# Verificar se ja existe biblioteca existente. Se não, criar arquivo csv novo
-biblioteca_existente = '0'
-while biblioteca_existente == '0':
-    print(f'\nAtenção!. Criar uma nova biblioteca vai apagar biblioteca existente. ')
-    biblioteca_existente = input('\nJá existe uma biblioteca? 123- Sim, 456- Não: ')
-    if biblioteca_existente == '123':
-        # Comando para importar a biblioteca existente
-        biblioteca = []
-        csv_path = 'biblioteca.csv'
-        carregar_csv(csv_path)
-    elif biblioteca_existente == '456':        
-        biblioteca = []
-    else:
-        print('\nDigite OPÇÃO VÁLIDA.')
-        biblioteca_existente = '0'
 
 
 # função para adicionar livro
@@ -125,6 +104,25 @@ def organizar(ordenar):
     return livros_organizados
 
 # Programa rodando 
+today = data_de_cadastro()
+
+# Verificar se ja existe biblioteca existente. Se não, criar arquivo csv novo
+biblioteca_existente = '0'
+while biblioteca_existente == '0':
+    print(f'\nAtenção!. Criar uma nova biblioteca vai apagar biblioteca existente. ')
+    biblioteca_existente = input('\nJá existe uma biblioteca? 123- Sim, 456- Não: ')
+    if biblioteca_existente == '123':
+        # Comando para importar a biblioteca existente
+        biblioteca = []
+        csv_path = 'biblioteca.csv'
+        carregar_csv(csv_path)
+    elif biblioteca_existente == '456':        
+        biblioteca = []
+    else:
+        print('\nDigite OPÇÃO VÁLIDA.')
+        biblioteca_existente = '0'
+
+
 selecionar = '5'
 while selecionar !='8':
     extrato_biblioteca(biblioteca)
