@@ -141,7 +141,7 @@ while selecionar !='8':
         if w =='':
             print('\nFalta o título do livro. Voltando ao menu principal.')
         else:    
-            adicionar_livro(w,x,y,z)        
+            adicionar_livro(w,x,y,z,today)        
 
     elif selecionar == '2': # Remover
         remover = input('Digite o titulo do livro que quer remover: ')
