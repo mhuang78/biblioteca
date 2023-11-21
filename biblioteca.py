@@ -192,21 +192,21 @@ while selecionar !='8':
         extrato_biblioteca(biblioteca)
 
     elif selecionar == '6': # Valor da biblioteca
-
         for sub in biblioteca:
             sub['Valor'] = float(sub['Valor'])
         
         total = sum(sub['Valor'] for sub in biblioteca)
-       
         print(f'\nTotal investido na biblioteca: R$ {total}.\n')
+        
     elif selecionar == '7':
         ordem = input('Escreva como você quer ordenar a biblioteca. Escreva titulo, autor, ou categoria. ').capitalize()
+        
         if ordem == 'Titulo' or ordem == 'Autor' or ordem == 'Categoria': 
             extrato_organizado = organizar(ordem)
             biblioteca = extrato_organizado
+            
         else:
             print('Opção inválida. Voltando ao meu principal.')
-
     else:
         print('Selecione opção válida.')
 
