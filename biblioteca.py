@@ -198,10 +198,7 @@ while selecionar !='8':
         extrato_biblioteca(biblioteca)
 
     elif selecionar == '6': # Valor da biblioteca
-        for sub in biblioteca:
-            sub['Valor'] = float(sub['Valor'])
-        
-        total = sum(sub['Valor'] for sub in biblioteca)
+        total = sum(float(sub['Valor']) for sub in biblioteca)
         print(f'\nTotal investido na biblioteca: R$ {total:.2f}.\n')
         
     elif selecionar == '7':
