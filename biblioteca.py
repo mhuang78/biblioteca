@@ -126,7 +126,7 @@ while biblioteca_existente == '0':
 
 selecionar = '5'
 while selecionar !='8':
-    selecionar=input('1-CADASTRAR, 2-REMOVER, 3- ATUALIZAR, 4-BUSCAR, 5-EXTRATO, 6-TOTAL INVESTIDO, 7-ORDENAR, 8-FECHAR \n')
+    selecionar=input('\n1-CADASTRAR, 2-REMOVER, 3- ATUALIZAR, 4-BUSCAR, 5-EXTRATO, 6-TOTAL INVESTIDO, 7-ORDENAR, 8-FECHAR \n')
     if selecionar=='8':
         print('Encerrando programa')
 
