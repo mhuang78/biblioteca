@@ -202,7 +202,7 @@ while selecionar !='8':
             sub['Valor'] = float(sub['Valor'])
         
         total = sum(sub['Valor'] for sub in biblioteca)
-        print(f'\nTotal investido na biblioteca: R$ {total}.\n')
+        print(f'\nTotal investido na biblioteca: R$ {total:.2f}.\n')
         
     elif selecionar == '7':
         ordem = input('Escreva como você quer ordenar a biblioteca. Escreva titulo, autor, ou categoria. ').capitalize()
