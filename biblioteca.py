@@ -97,8 +97,7 @@ def atualizar_livro(titulo, novo_autor=None, nova_categoria=None, novo_valor=Non
 # funçao para organizar e imprimir a biblioteca 
 def organizar(ordenar):
     livros_organizados = sorted(biblioteca, key=lambda x: x[ordenar])
-    for i in livros_organizados:
-        print(i)
+    extrato_biblioteca(livros_organizados)
     return livros_organizados
 
 # Programa rodando 
