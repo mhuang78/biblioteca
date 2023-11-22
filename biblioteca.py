@@ -169,32 +169,42 @@ while selecionar !='8':
                 titulo = input('Digite o titulo: ').upper()
                 if titulo != '':
                     busca_titulo = pesquisar_livros('Titulo', titulo)
-                    print(f"\nTitulo de livros: {titulo}")
-                    for livro in busca_titulo:
-                        print(f"Autor: {livro['Autor']:<20} Categoria: {livro['Categoria']}")
+                    if len(busca_titulo) == 0:
+                        print(f"Nenhum livro encontrado com o título: {titulo}")
+                    else:
+                        print(f"\nTitulo de livros: {titulo}")
+                        for livro in busca_titulo:
+                            print(f"Autor: {livro['Autor']:<20} Categoria: {livro['Categoria']}")
                 else:
-                    print('Digite novamente')
+                    print('Opcao Inválida!')
             elif busca == '2':
                 autor = input('Digite o autor: ').upper()
                 if autor != '':
                     busca_autor = pesquisar_livros('Autor', autor)
-                    print(f"\nLivros escritos por: {autor}")
-                    for livro in busca_autor:
-                        print(f"Livro: {livro['Titulo']:<20} Categoria: {livro['Categoria']}")
+                    if len(busca_autor) == 0:
+                        print(f"Nenhum livro encontrado com o autor: {autor}")
+                    else:
+                        print(f"\nLivros escritos por: {autor}")
+                        for livro in busca_autor:
+                            print(f"Livro: {livro['Titulo']:<20} Categoria: {livro['Categoria']}")
                 else:
-                    print('Digite novamente')
+                    print('Opcao Inválida!')
+                     
             elif busca == '3':
                 categoria = input('Digite o categoria: ').upper()
                 if categoria != '':
                     busca_categoria = pesquisar_livros('Categoria', categoria)
-                    print(f"\nLivros na categoria: {categoria}")
-                    for livro in busca_categoria:
-                        print(f"Autor: {livro['Autor']:<20} Titulo: {livro['Titulo']}")
+                    if len(busca_categoria) == 0:
+                        print(f"Nenhum livro encontrado da categoria {categoria}")
+                    else:
+                        print(f"\nLivros na categoria: {categoria}")
+                        for livro in busca_categoria:
+                            print(f"Autor: {livro['Autor']:<20} Titulo: {livro['Titulo']}")
                 else:
-                    print('Digite novamente')
+                    print('Opcao Inválida!')
         else:
-            print('Livro não encontrada ou inválida.')
-
+            print('Opcao inválida!')       
+                        
     elif selecionar == '5': # Mostrar 
         extrato_biblioteca(biblioteca)
 
